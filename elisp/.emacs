@@ -63,10 +63,10 @@
 ;; Disable line numbers in certain modes
 (add-hook 'doc-view-mode-hook 'disable-line-numbers-in-doc-view)
 
-(add-to-list 'load-path "~/libs/emacs-reveal")
+(add-to-list 'load-path "~/emacs-config/emacs-reveal")
 (require 'emacs-reveal)
 
-(add-to-list 'load-path "~/libs/emacs-libvterm")
+(add-to-list 'load-path "~/emacs-config/emacs-libvterm")
 (require 'vterm)
 
 (custom-set-variables

@@ -1,5 +1,5 @@
 all:   
 	git submodule update --init --recursive
-	ln -sf $$(pwd)/config/.emacs ~/.emacs
+	ln -sf $$(pwd)/elisp/.emacs ~/.emacs
 clean:
 	rm -rf *~
