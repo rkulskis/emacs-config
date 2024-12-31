@@ -1,0 +1,6 @@
+[submodule "emacs-reveal"]
+	path = emacs-reveal
+	url = https://gitlab.com/oer/emacs-reveal.git
+[submodule "emacs-libvterm"]
+	path = emacs-libvterm
+	url = https://github.com/akermu/emacs-libvterm.git
