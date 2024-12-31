@@ -1,0 +1,8 @@
+texlive-latex-base
+texlive-latex-extra
+python-pygments
+poppler-utils
+libvterm-dev
+xdg-utils
+firefox
+org-plus-contrib
