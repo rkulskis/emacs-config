@@ -1,4 +1,4 @@
-;; -*- mode: elisp -*-
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (setq-default indent-tabs-mode t)
 (setq-default tab-width 2)
 (defun my-java-mode-hook ()
@@ -38,12 +38,8 @@
 ;; UI Configuration
 (menu-bar-mode -1)   ;; Hide menu bar
 (tool-bar-mode -1)   ;; Hide tool bar
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-(defun maximize-emacs-on-focus ()
-  "Maximize the Emacs frame when it regains focus."
-  (when (display-graphic-p)
-    (set-frame-parameter nil 'fullscreen 'maximized)))
-(add-hook 'focus-in-hook 'maximize-emacs-on-focus) ;; keep fullscreen after sleep
+(setq initial-buffer-choice t) ; Opens *scratch* by default
+(add-to-list 'default-frame-alist '(fullscreen . maximized)) 
 (setq org-file-apps
     (quote
         ((auto-mode . emacs)
@@ -74,6 +70,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+	 '(nov yaml-mode rustic pdf-tools org-ref latex-preview-pane helm forge elfeed-score elfeed-org eink-theme ein disable-mouse auctex))
  '(safe-local-variable-values '((org-src-preserve-indentation . t))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -97,11 +95,13 @@
 ;; PDF Tools
 (pdf-tools-install)
 (pdf-loader-install)
+(setq pdf-view-display-size 'fit-page) ; Fit the page to the window size
+(setq pdf-view-continuous t) ; Enable continuous scrolling
 
 ;; for easy scheduling TODO items
-(setq org-agenda-files '("~/todo/list.org"))
 (global-set-key (kbd "C-c a") 'org-agenda)
-(setq tags-table-list '("~/TAGS"))
+(setq org-agenda-files '("~/todo/"))
+(setq tags-table-list '("~/TAGS" "~/dev/quest/quest_driveos"))
 (defun man-at-point ()
   "Pull up the man page for the symbol at point."
   (interactive)
@@ -110,4 +110,3 @@
         (man symbol)
       (message "No symbol at point"))))
 
-(global-set-key (kbd "C-c m") 'man-at-point)
